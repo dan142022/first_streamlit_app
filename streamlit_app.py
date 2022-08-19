@@ -25,7 +25,7 @@ else:
 streamlit.header("Fruityvice Fruit Advice!")
 
 import requests
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/{0}").format(fruits_to_show)
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/{fruits_to_show}")
 streamlit.text(fruityvice_response.json())
 
 # normalize json stuff
