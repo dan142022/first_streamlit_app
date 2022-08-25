@@ -71,11 +71,11 @@ def insert_row_snowflake(new_fruit):
     with my_cnx.cursor() as my_cur:
         tbd_fruit = my_cur.execute("select count(*) from fruit_load_list where fruit_name='"+ new_fruit +"'")
         print(tbd_fruit)
-        if tbd_fruit == 1:
+        if tbd_fruit > 0:
             return 'Sorry ' + new_fruit + 'is already on the list! Please try different fruit. '
         else:
             my_cur.execute("insert into fruit_load_list values ('"+ new_fruit +"')")
-            return 'Thanks for adding ' + new_fruit + tbd_fruit
+            return 'Thanks for adding ' + new_fruit
         
 add_my_fruit = streamlit.text_input('What fruit would you like to add?','')
 if streamlit.button('Add a Fruit to the List'):
