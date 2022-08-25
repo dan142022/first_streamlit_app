@@ -78,7 +78,7 @@ if streamlit.button('Add a Fruit to the List'):
     
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])   
 for (ctt) in my_cnx.cursor().execute("SELECT count(*) as ctt FROM testtable"):
-    print('{0}'.format(col1))
-
+    print('{0}'.format(ctt))
+my_cnx.close()
 
 
