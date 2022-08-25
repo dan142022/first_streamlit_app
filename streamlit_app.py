@@ -75,10 +75,4 @@ if streamlit.button('Add a Fruit to the List'):
     back_from_function = insert_row_snowflake(add_my_fruit)
     streamlit.text(back_from_function)
     
-    
-my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])   
-for (ctt) in my_cnx.cursor().execute("SELECT count(*) as ctt FROM fruit_load_list where fruitname='blueberry'"):
-    print('{0}'.format(ctt))
-my_cnx.close()
-
 
